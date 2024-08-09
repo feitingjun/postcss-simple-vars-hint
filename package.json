@@ -1,5 +1,6 @@
 {
   "name": "postcss-simple-vars-hint",
+  "publisher": "feitao",
   "displayName": "postcss-simple-vars-hint",
   "description": "文件内变量及使用postcss-import导入的文件内变量提示",
   "version": "0.0.1",
