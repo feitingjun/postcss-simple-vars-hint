@@ -3,7 +3,7 @@
   "publisher": "feitao",
   "displayName": "postcss-simple-vars-hint",
   "description": "文件内变量及使用postcss-import导入的文件内变量提示",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.92.0"
   },
@@ -11,14 +11,19 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:css"
+    "onLanguage:css",
+    "onLanguage:postcss"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "languages": [{
       "id": "css",
-      "extensions": [".css", ".pcss"],
-      "filenames": ["*.css", "*.pcss"]
+      "extensions": [".css"],
+      "filenames": ["*.css"]
+    }, {
+      "id": "postcss",
+      "extensions": [".pcss"],
+      "filenames": ["*.pcss"]
     }],
     "configuration": {
       "title": "postcss-simple-vars-hint",

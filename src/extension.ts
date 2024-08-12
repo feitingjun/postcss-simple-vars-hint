@@ -56,9 +56,9 @@ const provideCompletionItems = (
   const preChart = document.getText(new vscode.Range(position.translate(0, -1), position))
   // 当前文件及通过@import引入文件内的全部变量
   const vars = parseCss(document, document.uri.fsPath)
-  // 当前光标后面的文本
+  // 当前行光标后面的文本
   const afterText = document.getText(new vscode.Range(position, document.lineAt(position.line).range.end))
-  // 判断当前光标后面是否存在分号(填充时会自动替换当前行光标至后面第一个分号间的全部内容)
+  // 判断当前光标后面是否存在分号
   const hasSemicolon = afterText.indexOf(';') > -1
   const getColor = (color:string):string => {
     if(/var(.+)/.test(color)) {
@@ -102,7 +102,7 @@ const provideCompletionItems = (
   },
  */
 export function activate(context: vscode.ExtensionContext) {
-	const disposable = languages.registerCompletionItemProvider('css', {
+	const disposable = languages.registerCompletionItemProvider(['css', 'postcss'], {
     provideCompletionItems,
     // resolveCompletionItem
   }, '$')
